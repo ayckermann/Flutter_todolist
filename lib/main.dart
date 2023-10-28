@@ -44,8 +44,11 @@ class _TodoAppState extends State<TodoApp> {
 
   void refreshItemList() async {
     final todos = await dbHelper.getAllTodos();
+
     setState(() {
       _todos = todos;
+      _titleController.clear();
+      _descController.clear();
     });
   }
 
